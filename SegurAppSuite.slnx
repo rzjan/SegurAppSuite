@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="SegurAppSuite.Application/SegurAppSuite.Application.csproj" />
+  <Project Path="SegurAppSuite.Domain/SegurAppSuite.Domain.csproj" />
+  <Project Path="SegurAppSuite.Infrastructure/SegurAppSuite.Infrastructure.csproj" />
+  <Project Path="SegurAppSuite.Presentation/SegurAppSuite.Presentation.csproj" />
+</Solution>

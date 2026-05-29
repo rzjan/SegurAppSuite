@@ -1,0 +1,6 @@
+@SegurAppSuite.Presentation_HostAddress = http://localhost:5250
+
+GET {{SegurAppSuite.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
