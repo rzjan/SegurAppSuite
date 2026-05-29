@@ -62,7 +62,7 @@ SegurAppSuite/
 ## Stack técnico
 
 ### Backend
-![.NET](https://img.shields.io/badge/.NET_8-512BD4?style=flat&logo=dotnet&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET_10-512BD4?style=flat&logo=dotnet&logoColor=white)
 ![C#](https://img.shields.io/badge/C%23-239120?style=flat&logo=csharp&logoColor=white)
 ![ASP.NET Minimal API](https://img.shields.io/badge/ASP.NET_Minimal_API-512BD4?style=flat&logo=dotnet&logoColor=white)
 ![MediatR](https://img.shields.io/badge/MediatR-512BD4?style=flat&logo=dotnet&logoColor=white)
