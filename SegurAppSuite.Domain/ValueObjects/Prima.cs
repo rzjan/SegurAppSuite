@@ -1,10 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace SegurAppSuite.Domain.ValueObjects;
 
-namespace SegurAppSuite.Domain.ValueObjects
-{
-    internal class Prima
-    {
-    }
-}
+public record Prima(decimal Monto, string Moneda);

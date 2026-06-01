@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace SegurAppSuite.Domain.ValueObjects;
 
-namespace SegurAppSuite.Domain.ValueObjects
+public record PeriodoCobertura(DateTime Inicio, DateTime Fin)
 {
-    internal class PeriodoCobertura
+    public bool EstaDentroDelPeriodo(DateTime fecha)
     {
+        return fecha >= Inicio && fecha <= Fin;
     }
 }
+
