@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using SegurAppSuite.Domain.Events;
 
-namespace SegurAppSuite.Application.UseCases;
+namespace SegurAppSuite.Application.UseCases.EventHandlers;
 
 public class SiniestroRegistradoHandler:INotificationHandler<SiniestroRegistrado>
 {
