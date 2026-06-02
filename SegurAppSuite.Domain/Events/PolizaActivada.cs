@@ -1,3 +1,5 @@
-﻿namespace SegurAppSuite.Domain.Events;
+﻿using MediatR;
 
-public record PolizaActivada(Guid PolizaId);
+namespace SegurAppSuite.Domain.Events;
+
+public record PolizaActivada(Guid PolizaId) : INotification;
