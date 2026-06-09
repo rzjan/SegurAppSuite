@@ -1,4 +1,5 @@
 using MediatR;
+using SegurAppSuite.Application.EventHanlders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ builder.Services.AddOpenApi();
 
 // Registrar MediatR buscando handlers en el proyecto Application
 builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssembly(typeof(SegurAppSuite.Application.UseCases.EventHandlers.SiniestroRegistradoHandler).Assembly)
+    cfg.RegisterServicesFromAssembly(typeof(SiniestroRegistradoHandler).Assembly)
 );
 
 var app = builder.Build();

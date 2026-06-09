@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using SegurAppSuite.Domain.Events;
 
-namespace SegurAppSuite.Application.UseCases.EventHandlers;
+namespace SegurAppSuite.Application.EventHanlders;
 
 public class SiniestroRegistradoHandler:INotificationHandler<SiniestroRegistrado>
 {
@@ -12,3 +12,4 @@ public class SiniestroRegistradoHandler:INotificationHandler<SiniestroRegistrado
         return Task.CompletedTask;
     }
 }
+
