@@ -14,6 +14,13 @@ builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(SiniestroRegistradoHandler).Assembly)
 );
 
+// 🔹 Agregar controladores
+builder.Services.AddControllers();
+
+// 🔹 Configurar Swagger (opcional, útil para probar API)
+builder.Services.AddEndpointsApiExplorer();
+//builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

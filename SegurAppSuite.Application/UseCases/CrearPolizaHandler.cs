@@ -18,7 +18,7 @@ public class CrearPolizaHandler
         _mediator = mediatir;
     }
 
-    public async Task<Guid> Handler(PolizaDto dto)
+    public async Task<Guid> Handle(PolizaDto dto)
     {
         var poliza = new Poliza(
               Guid.NewGuid(),
