@@ -13,6 +13,7 @@ public class Poliza
     private readonly List<Siniestro> _siniestros = new();
     public IReadOnlyCollection<Siniestro> Siniestros => _siniestros.AsReadOnly();
 
+    public Poliza() { } // Constructor para EF Core
     public Poliza(Guid id, Guid clienteId, Prima prima, PeriodoCobertura cobertura)
     {
         Id = id;

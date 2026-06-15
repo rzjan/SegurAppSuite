@@ -1,5 +1,6 @@
 using MediatR;
 using SegurAppSuite.Application.EventHanlders;
+using SegurAppSuite.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// 🔹 Registrar servicios de Infrastructure (DbContext + repositorios)
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
 // Registrar MediatR buscando handlers en el proyecto Application
 builder.Services.AddMediatR(cfg =>

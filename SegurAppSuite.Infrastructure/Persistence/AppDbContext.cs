@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SegurAppSuite.Domain.Entities;
+using SegurAppSuite.Infrastructure.Persistence.Configurations;
 
 namespace SegurAppSuite.Infrastructure.Persistence;
 
-public class AppDbContext:DbContext
+public class AppDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-    {}
+    public AppDbContext(DbContextOptions<AppDbContext> options)
+        : base(options)
+    {
+    }
 
     public DbSet<Cliente> Clientes { get; set; }
     public DbSet<Poliza> Polizas { get; set; }
@@ -14,22 +17,12 @@ public class AppDbContext:DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //Configuración basicas de entidades
-        modelBuilder.Entity<Cliente>().HasKey(c => c.Id);
-        modelBuilder.Entity<Poliza>().HasKey(p => p.Id);
-        modelBuilder.Entity<Siniestro>().HasKey(s => s.Id);
+        // 🔹 Aplica todas las configuraciones
+        modelBuilder.ApplyConfiguration(new ClienteConfiguration());
+        modelBuilder.ApplyConfiguration(new PolizaConfiguration());
+        modelBuilder.ApplyConfiguration(new SiniestroConfiguration());
 
-        //Relación Cliente > Polizas
-        modelBuilder.Entity<Poliza>()
-            .HasOne<Cliente>()
-            .WithMany()
-            .HasForeignKey(p => p.ClienteId);
-
-        //Relación Cliente > Poliza
-        modelBuilder.Entity<Poliza>()
-            .HasMany(p=> p.Siniestros)
-            .WithOne()
-            .HasForeignKey("PolizaId");
+        base.OnModelCreating(modelBuilder);
     }
-
 }
+

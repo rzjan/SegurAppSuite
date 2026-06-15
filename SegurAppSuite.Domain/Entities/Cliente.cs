@@ -15,6 +15,7 @@ public class Cliente
     // Método para agregar una dirección al cliente
     public IReadOnlyCollection<Direccion> Direcciones => _direcciones.AsReadOnly();
 
+    public Cliente() { } // Constructor para EF Core
     public Cliente(Guid id, string nombre, string email)
     {
         Id = id;
