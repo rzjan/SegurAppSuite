@@ -7,7 +7,7 @@ namespace SegurAppSuite.Presentation.Controllers;
 
 [ApiController]
 [Route("api/[Controller]")]
-public class SiniestroController: ControllerBase
+public class SiniestroController : ControllerBase
 {
     private readonly RegistrarSiniestroHandler _registrarSiniestroHandler;
 

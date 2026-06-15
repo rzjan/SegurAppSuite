@@ -5,8 +5,8 @@ using SegurAppSuite.Application.UseCases;
 namespace SegurAppSuite.Presentation.Controllers;
 
 [ApiController]
-[Route("[controller]")]
-public class PolizaController:ControllerBase
+[Route("api/[Controller]")]
+public class PolizaController : ControllerBase
 {
     private readonly CrearPolizaHandler _crearPolizaHandler;
     private readonly ActivarPolizaHandler _activarPolizaHandler;
@@ -18,7 +18,8 @@ public class PolizaController:ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Crear([FromBody] PolizaDto dto) {
+    public async Task<IActionResult> Crear([FromBody] PolizaDto dto)
+    {
         var polizaId = await _crearPolizaHandler.Handle(dto);
         return Ok(new { PolizaId = polizaId });
     }
@@ -30,3 +31,11 @@ public class PolizaController:ControllerBase
         return (Ok($"Poliza {id} acivada correctamente"));
     }
 }
+
+//[ApiController]
+//[Route("api/[controller]")]
+//public class TestController : ControllerBase
+//{
+//    [HttpGet("ping")]
+//    public IActionResult Ping() => Ok("pong");
+//}

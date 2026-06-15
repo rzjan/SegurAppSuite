@@ -6,10 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-
 // 🔹 Registrar servicios de Infrastructure (DbContext + repositorios)
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
@@ -23,14 +19,29 @@ builder.Services.AddControllers();
 
 // 🔹 Configurar Swagger (opcional, útil para probar API)
 builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// 🔹 Swagger middleware
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    // Swagger JSON
+    app.UseSwagger();
+
+    // Swagger UI
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "SegurAppSuite API V1");
+    });
+
+    // Redoc integrado con Swashbuckle
+    app.UseReDoc(c =>
+    {
+        c.RoutePrefix = "docs"; // URL: /docs
+        c.SpecUrl = "/swagger/v1/swagger.json";
+        c.DocumentTitle = "SegurAppSuite API Docs";
+    });
 }
 
 app.UseHttpsRedirection();
